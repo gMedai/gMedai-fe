@@ -19,6 +19,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../contexts/auth-context";
+import httpRequest from "@utils/httpRequest";
 const HeaderBar = () => {
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
@@ -65,7 +66,7 @@ const Login = () => {
     }),
     onSubmit: async () => {
       try {
-        const response = await axios.post("http://localhost:3000/auth", {
+        const response = await httpRequest.post("/auth/login", {
           ...formik.values,
           role: selectRole,
         });
