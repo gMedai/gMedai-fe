@@ -23,31 +23,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const HeaderBar = () => {
-  return (
-    <NextLink href="/" passHref>
-      <Typography
-        variant="h6"
-        sx={{
-          fontSize: "20px",
-          textDecoration: "none",
-          color: "black",
-          display: "inline",
-          position: "absolute",
-          top: "25px",
-          left: "25px",
-          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-          "&:hover": {
-            textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)",
-            cursor: "pointer",
-          },
-        }}
-      >
-        Gmed AI
-      </Typography>
-    </NextLink>
-  );
-};
+import HeaderBarAuth from "../components/header-auth"
+
 
 const ForgotPass = () => {
   const [selectRole, setSelectRole] = useState("User");
@@ -121,52 +98,55 @@ const ForgotPass = () => {
     if (countdown > 0) {
       return;
     } else {
-      if (!formik.errors.email) {
-        try {
-          const response = await axios.post("http://localhost:3000/users/sendOtp", {
-            email: formik.values.email,
-          });
-          if (response) {
-            toast.success(`Email has been sent to ${formik.values.email}`, {
-              position: "top-right",
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          }
-          setDisplayOtp(true);
-          setIsDisabled(true);
-          setCountdown(60);
-        } catch (error) {
-          if (error.response.status === 404) {
-            toast.error("User not found", {
-              position: "top-right",
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          } else if (error.response.status === 500) {
-            toast.error(`Please wait a moment to resend the OTP`, {
-              position: "top-right",
-              autoClose: 1500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          }
-        }
-      }
+      setDisplayOtp(true);
+      setIsDisabled(true);
+      setCountdown(60);
+      // if (!formik.errors.email) {
+      //   try {
+      //     const response = await axios.post("http://localhost:3000/users/sendOtp", {
+      //       email: formik.values.email,
+      //     });
+      //     if (response) {
+      //       toast.success(`Email has been sent to ${formik.values.email}`, {
+      //         position: "top-right",
+      //         autoClose: 1500,
+      //         hideProgressBar: false,
+      //         closeOnClick: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //         theme: "light",
+      //       });
+      //     }
+      //     setDisplayOtp(true);
+      //     setIsDisabled(true);
+      //     setCountdown(60);
+      //   } catch (error) {
+      //     if (error.response.status === 404) {
+      //       toast.error("User not found", {
+      //         position: "top-right",
+      //         autoClose: 1500,
+      //         hideProgressBar: false,
+      //         closeOnClick: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //         theme: "light",
+      //       });
+      //     } else if (error.response.status === 500) {
+      //       toast.error(`Please wait a moment to resend the OTP`, {
+      //         position: "top-right",
+      //         autoClose: 1500,
+      //         hideProgressBar: false,
+      //         closeOnClick: true,
+      //         pauseOnHover: true,
+      //         draggable: true,
+      //         progress: undefined,
+      //         theme: "light",
+      //       });
+      //     }
+      //   }
+      // }
     }
   };
 
@@ -249,7 +229,7 @@ const ForgotPass = () => {
         <title>ForgotPass | Material Kit</title>
       </Head>
 
-      <HeaderBar />
+      <HeaderBarAuth />
 
       <Box
         component="main"

@@ -15,7 +15,7 @@ const Page = () => {
   const datares = data ? data : null;
   return (
     <>
-       <Head>
+      <Head>
         <title>Gmed AI</title>
       </Head>
       <Box
@@ -28,7 +28,7 @@ const Page = () => {
       >
         <Container maxWidth={false}>
           <Typography sx={{ mb: 3 }} variant="h4">
-            Knee Osteoarthritis Diagnosis
+            Bone disease
           </Typography>
           <Grid container spacing={3}>
             <Grid item lg={8} md={8} xs={12}>

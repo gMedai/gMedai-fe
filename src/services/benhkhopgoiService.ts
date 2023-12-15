@@ -3,7 +3,7 @@ import httpRequest from "@/utils/httpRequest";
 class BenhkhopgoiService {
 
   async postLoadModelKhopGoi() {
-    return httpRequest.post("/benhkhopgoi/benhkhopgoi-loadmodel");
+    return httpRequest.post("load-model/benhkhopgoi-loadmodel");
 
   }
   async postChuandoanKhopGoi(datasend: any) {

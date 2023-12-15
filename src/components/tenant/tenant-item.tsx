@@ -29,15 +29,15 @@ export function CustomerItem({ customer, selected }) {
           <Avatar src="/static/images/avatars/avatar_3.png" sx={{ mr: 2 }}>
             {getInitials(customer.fullName)}
           </Avatar>
-          <Typography color="textPrimary" variant="body1">
+          <Typography sx= {{fontSize: "13px"}} color="textPrimary">
             {customer.fullName}
           </Typography>
         </Box>
       </TableCell>
-      <TableCell>{customer.email}</TableCell>
-      <TableCell>{customer.phone}</TableCell>
-      <TableCell align="right">{customer.location}</TableCell>
-      <TableCell align="right">{customer.dob}</TableCell>
+      <TableCell sx= {{fontSize: "13px"}}>{customer.email}</TableCell>
+      <TableCell sx= {{fontSize: "13px"}}>{customer.phone}</TableCell>
+      <TableCell sx= {{fontSize: "13px"}} align="right">{customer.location}</TableCell>
+      <TableCell sx= {{fontSize: "13px"}} align="right">{customer.website}</TableCell>
 
       <TableCell sx={{ color: "", fontWeight: 500 }} align="right">
         <SeverityPill color={(customer.imageRemain === 0 && "error") || "success"}>

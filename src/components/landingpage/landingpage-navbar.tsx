@@ -26,7 +26,7 @@ export const LandingPageNavbar = (props) => {
             <Title>GMed AI</Title>
           </Logo>
         </NextLink>
-        <Navigation>
+        {/* <Navigation>
           <NextLink href="/benhkhopgoi">
             <NavItem>Diagnostic</NavItem>
           </NextLink>
@@ -39,7 +39,7 @@ export const LandingPageNavbar = (props) => {
           <NextLink href="#pricing">
             <NavItem>Pricing</NavItem>
           </NextLink>
-        </Navigation>
+        </Navigation> */}
         {isAuthenticated ? (
           <Box>
             <Avatar

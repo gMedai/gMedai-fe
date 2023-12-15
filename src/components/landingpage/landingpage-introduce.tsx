@@ -4,18 +4,19 @@ import Image from "next/image";
 import NextLink from "next/link";
 
 export const LandingPageIntroduce = (props) => {
+  
   return (
     <>
-      <Grid container spacing={2} sx={{ padding: "0 20px" }}>
+      <Grid container spacing={5} sx={{ padding: "16px 32px" }}>
         <Grid item xs={12} md={6}>
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", padding:"8px 16px" }}>
             <Typography
               variant="h2"
               sx={{
                 color: "#000",
                 alignSelf: "start",
-                fontWeight: 800,
-                fontSize: { xs: "40px", md: "48px" },
+                fontWeight: 650,
+                fontSize: { xs: "24px", md: "32px" },
                 maxWidth: "100%",
               }}
             >
@@ -27,10 +28,12 @@ export const LandingPageIntroduce = (props) => {
                 color: "#000",
                 textAlign: "justify",
                 alignSelf: "start",
-                marginTop: "26px",
+                marginTop: "16px",
                 fontWeight: 400,
                 fontSize: "20px",
                 maxWidth: "100%",
+                marginRight: "24px",
+                textIndent: "32px"
               }}
             >
               Knee joint disease, also known as knee joint inflammation, is a common condition that
@@ -41,9 +44,10 @@ export const LandingPageIntroduce = (props) => {
               explore and share knowledge to cope with knee joint disease together.
             </Typography>
 
-            <StyledButton variant="contained">View detail</StyledButton>
+            <StyledButton sx = {{background: "linear-gradient(to right, #9083D5, #807593)", color: "#fff"}}>View detail</StyledButton>
           </Box>
         </Grid>
+        
         <Grid item xs={12} md={6}>
           <Box>
             <Image
@@ -51,7 +55,7 @@ export const LandingPageIntroduce = (props) => {
               loading="lazy"
               src="/static/images/introduce.png"
               width={900}
-              height={500}
+              height={550}
               alt="Knee Joint Disease"
               style={{
                 aspectRatio: "1.62",
@@ -76,7 +80,7 @@ export const LandingPageIntroduce = (props) => {
               src="/static/images/introduce2.png"
               width={700}
               height={500}
-              alt="Knee Joint Disease"
+              alt="Who we are"
               style={{
                 aspectRatio: "1.62",
                 objectFit: "contain",
@@ -85,7 +89,6 @@ export const LandingPageIntroduce = (props) => {
                 overflow: "hidden",
                 flexGrow: 1,
                 maxWidth: "100%",
-                marginTop: 15,
               }}
             />
           </Box>
@@ -97,9 +100,10 @@ export const LandingPageIntroduce = (props) => {
               sx={{
                 color: "#000",
                 alignSelf: "start",
-                fontWeight: 800,
-                fontSize: { xs: "40px", md: "48px" },
+                fontWeight: 500,
+                fontSize: { xs: "24px", md: "32px" },
                 maxWidth: "100%",
+                marginTop: "16px"
               }}
             >
               Who we are
@@ -110,10 +114,12 @@ export const LandingPageIntroduce = (props) => {
                 color: "#000",
                 textAlign: "justify",
                 alignSelf: "start",
-                marginTop: "26px",
+                marginTop: "16px",
                 fontWeight: 400,
                 fontSize: "20px",
                 maxWidth: "100%",
+                marginRight: "24px",
+                textIndent: "32px"
               }}
             >
               We are a team of passionate students from Bach Khoa University who have come together
@@ -125,7 +131,7 @@ export const LandingPageIntroduce = (props) => {
               need for a healthier life.
             </Typography>
 
-            <StyledButton variant="contained">See more</StyledButton>
+            <StyledButton sx = {{background: "linear-gradient(to right, #9083D5, #807593)", color: "#fff"}}>View detail</StyledButton>
           </Box>
         </Grid>
       </Grid>

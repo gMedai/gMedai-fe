@@ -26,14 +26,14 @@ const Page = () => {
         }}
       >
         <Container maxWidth={false}>
-          {/* <Typography sx={{ mb: 3 }} variant="h4">
-            Bệnh khớp gối
-          </Typography> */}
-          <Grid container spacing={3} sx={{ marginTop: "30px" }}>
-            <Grid item lg={6} md={8} xs={12}>
+          <Typography sx={{ mb: 3 }} variant="h4">
+            Knee Osteoarthritis Diagnosis
+          </Typography>
+          <Grid container spacing={3}>
+            <Grid item lg={8} md={8} xs={12}>
               <BenhKhopGoiUploadImage handleImageChange={handleImageChange} />
             </Grid>
-            <Grid item lg={6} md={8} xs={12}>
+            <Grid item lg={4} md={8} xs={12}>
               <BenhKhopGoiKetQua data={datares} />
             </Grid>
           </Grid>
@@ -43,8 +43,6 @@ const Page = () => {
   );
 };
 
-Page.getLayout = (page) => (
-  <DashboardLayout title={"Knee Osteoarthritis Diagnosis"}>{page}</DashboardLayout>
-);
+Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Page;

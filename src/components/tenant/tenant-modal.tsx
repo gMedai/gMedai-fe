@@ -15,7 +15,7 @@ import {
   TextField,
 } from "@mui/material";
 import roleService from "@services/roleService";
-import { ModalWorkUnitRoot } from "./customer-modal-work";
+import { ModalWorkUnitRoot } from "./tenant-modal-work";
 import organizationService from "@services/organizationService";
 
 export interface CustomerModalProps {

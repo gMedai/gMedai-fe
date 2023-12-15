@@ -12,7 +12,7 @@ import {
   TableRow,
 } from "@mui/material";
 import { userService } from "@services/userService";
-import { CustomerItem } from "./customer-item";
+import { CustomerItem } from "./tenant-item";
 
 export const CustomerResults = ({ customers, setCustomers, ...rest }) => {
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -46,7 +46,7 @@ export const CustomerResults = ({ customers, setCustomers, ...rest }) => {
         <TableCell>Email</TableCell>
         <TableCell>Phone</TableCell>
         <TableCell>Location</TableCell>
-        <TableCell align="center">Date Of Birth</TableCell>
+        <TableCell align="center">Website</TableCell>
         <TableCell align="center">Image remain</TableCell>
       </TableRow>
     );

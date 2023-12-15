@@ -36,6 +36,16 @@ const itemsUser = [
         icon: <Share fontSize="small" />,
         title: "Knee Osteoarthritis",
       },
+      {
+        href: "/benhkhoptay",
+        icon: <Share fontSize="small" />,
+        title: "Hand joint disease",
+      },
+      {
+        href: "/benhxuong",
+        icon: <Share fontSize="small" />,
+        title: "Bone disease",
+      },
     ],
   },
   {
@@ -46,7 +56,7 @@ const itemsUser = [
   {
     href: "/register-service",
     icon: <UserIcon fontSize="small" />,
-    title: "Register service",
+    title: "Change tenant",
   },
 ];
 
@@ -66,6 +76,16 @@ const itemsTenant = [
         icon: <Share fontSize="small" />,
         title: "Knee Osteoarthritis",
       },
+      {
+        href: "/tenant/benhkhoptay",
+        icon: <Share fontSize="small" />,
+        title: "Hand joint disease",
+      },
+      {
+        href: "/tenant/benhxuong",
+        icon: <Share fontSize="small" />,
+        title: "Bone disease",
+      },
     ],
   },
   {
@@ -83,11 +103,11 @@ const itemsTenant = [
     icon: <CogIcon fontSize="small" />,
     title: "Register service",
   },
-  {
-    href: "/tenant/about",
-    icon: <Scanner fontSize="small" />,
-    title: "About Us",
-  },
+  // {
+  //   href: "/tenant/about",
+  //   icon: <Scanner fontSize="small" />,
+  //   title: "About Us",
+  // },
 ];
 
 const itemsAdmin = [
@@ -105,6 +125,17 @@ const itemsAdmin = [
         href: "/admin/benhkhopgoi",
         icon: <Share fontSize="small" />,
         title: "Knee Osteoarthritis",
+      },
+      {
+        href: "/admin/benhkhoptay",
+        icon: <Share fontSize="small" />,
+        title: "Hand joint disease",
+      },
+   
+      {
+        href: "/admin/benhxuong",
+        icon: <Share fontSize="small" />,
+        title: "Bone disease",
       },
     ],
   },

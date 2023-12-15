@@ -7,41 +7,41 @@ import { TotalCustomers } from "../../components/dashboard/total-customers";
 import { TotalDisease } from "../../components/dashboard/total-disease";
 import { TotalProfit } from "../../components/dashboard/total-profit";
 import { DashboardLayout } from "../../components/dashboard-layout";
-import { CustomerResults } from "../../components/customer/customer-list";
-import { CustomerToolbar } from "../../components/customer/customer-toolbar";
+import { CustomerResults } from "../../components/tenant/tenant-list";
+import { CustomerToolbar } from "../../components/tenant/tenant-toolbar";
 import { useState } from "react";
 const Page = () => {
   const [customers, setCustomers] = useState([
     {
-      fullName: "Nguyen Van A",
-      email: "john.doe@example.com",
-      phone: "123-456-7890",
-      location: "City, Country",
-      dob: "1/11/2023",
+      fullName: "Nguyen Tri Phương Hospital",
+      email: "triphuong@hcm.vnn.vn",
+      phone: "02839234332",
+      location: "468 D. Nguyen Trai, P8, Quan 5, TP.HCM",
+      website: "bvnguyentriphuong.com.vn/",
       imageRemain: 0,
     },
     {
-      fullName: "Nguyen Van B",
-      email: "jane.smith@example.com",
-      phone: "987-654-3210",
-      location: "Another City, Country",
-      dob: "2/11/2023",
+      fullName: "Cho Ray Hospital",
+      email: "bvchoray@choray.vn",
+      phone: "02838554138",
+      location: "201B D. Nguyen Chi Thanh, Phuong 12, Quan 5, TP.HCM",
+      website: "choray.vn/",
       imageRemain: 1000,
     },
     {
-      fullName: "Nguyen Van C",
-      email: "jane.smith@example.com",
-      phone: "987-654-3210",
-      location: "Another City, Country",
-      dob: "2/11/2023",
+      fullName: "Orthopedic Clinic - Dr. Che Thanh Doan",
+      email: "none",
+      phone: "0914288599",
+      location: "134A Xom Dat, Phuong 8, Quan 11, TP.HCM",
+      website: "none",
       imageRemain: 0,
     },
     {
-      fullName: "Nguyen Van D",
-      email: "jane.smith@example.com",
-      phone: "987-654-3210",
-      location: "Another City, Country",
-      dob: "2/11/2023",
+      fullName: "115 People's Hospital",
+      email: "bvnd115@hcm.fpt.vn",
+      phone: "1900099983",
+      location: "25 D. Su Van Hanh, Phưong 12, Quan 10, TP.HCM",
+      website: "benhvien115.com.vn/intro",
       imageRemain: 5000,
     },
   ]);

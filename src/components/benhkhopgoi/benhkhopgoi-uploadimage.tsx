@@ -310,7 +310,7 @@ export const BenhKhopGoiUploadImage = (props) => {
                         border: "2px solid #fff",
                         borderRadius: "5px",
                       }}
-                      src={swapImages ? urlimg : twoimage ? twoimage : resultModel.image1}
+                      src={!swapImages ? urlimg : twoimage ? twoimage : resultModel.image1}
                       alt=""
                       onClick={handleClickSwap}
                     />

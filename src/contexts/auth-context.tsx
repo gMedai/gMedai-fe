@@ -5,12 +5,14 @@ const HANDLERS = {
   INITIALIZE: "INITIALIZE",
   SIGN_IN: "SIGN_IN",
   SIGN_OUT: "SIGN_OUT",
+  CHANGE_TENANT: "CHANGE_TENANT",
 };
 
 const initialState = {
   isAuthenticated: false,
   isLoading: true,
   user: null,
+  tenantId: null,
 };
 
 const handlers = {
@@ -45,6 +47,14 @@ const handlers = {
       ...state,
       isAuthenticated: false,
       user: null,
+    };
+  },
+  [HANDLERS.CHANGE_TENANT]: (state, action) => {
+    const tenantId = action.payload;
+
+    return {
+      ...state,
+      tenantId,
     };
   },
 };
@@ -111,12 +121,19 @@ export const AuthProvider = (props) => {
     });
   };
 
+  const changeTenant = (tenantId) => {
+    dispatch({
+      type: HANDLERS.CHANGE_TENANT,
+      payload: tenantId,
+    });
+  };
   return (
     <AuthContext.Provider
       value={{
         ...state,
         signIn,
         signOut,
+        changeTenant,
       }}
     >
       {children}

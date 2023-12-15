@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { BenhKhopGoiUploadImage } from "../../components/benhkhopgoi/benhkhopgoi-uploadimage";
-import { BenhKhopGoiKetQua } from "../../components/benhkhopgoi/benhkhopgoi-ketqua";
-import { BenhKhopGoiResult } from "../../components/benhkhopgoi/benhkhopgoi-result";
-import { DashboardLayout } from "../../components/dashboard-layout";
+import { BenhKhopGoiUploadImage } from "../components/benhkhopgoi/benhkhopgoi-uploadimage";
+import { BenhKhopGoiKetQua } from "../components/benhkhopgoi/benhkhopgoi-ketqua";
+import { BenhKhopGoiResult } from "../components/benhkhopgoi/benhkhopgoi-result";
+import { DashboardLayout } from "../components/dashboard-layout";
 import { useState } from "react";
 
 const Page = () => {
@@ -15,7 +15,7 @@ const Page = () => {
   const datares = data ? data : null;
   return (
     <>
-       <Head>
+      <Head>
         <title>Gmed AI</title>
       </Head>
       <Box
@@ -28,7 +28,7 @@ const Page = () => {
       >
         <Container maxWidth={false}>
           <Typography sx={{ mb: 3 }} variant="h4">
-            Knee Osteoarthritis Diagnosis
+           Hand joint disease
           </Typography>
           <Grid container spacing={3}>
             <Grid item lg={8} md={8} xs={12}>
@@ -44,6 +44,6 @@ const Page = () => {
     </>
   );
 };
-Page.getLayout = (page) => <DashboardLayout role={"admin"}>{page}</DashboardLayout>;
+Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Page;

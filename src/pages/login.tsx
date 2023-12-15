@@ -19,31 +19,8 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../contexts/auth-context";
-const HeaderBar = () => {
-  return (
-    <AppBar position="fixed" sx={{ backgroundColor: "transparent", boxShadow: "none" }}>
-      <Toolbar>
-        <NextLink href="/" passHref>
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: "20px",
-              textDecoration: "none",
-              color: "black",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-              "&:hover": {
-                textShadow: "2px 2px 6px rgba(0, 0, 0, 0.3)",
-                cursor: "pointer",
-              },
-            }}
-          >
-            Gmed AI
-          </Typography>
-        </NextLink>
-      </Toolbar>
-    </AppBar>
-  );
-};
+import httpRequest from "@utils/httpRequest";
+import HeaderBarAuth from "../components/header-auth";
 
 const Login = () => {
   const authContext: any = useAuthContext();
@@ -56,72 +33,110 @@ const Login = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
     },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Must be a valid email").max(255).required("Email is required"),
-      password: Yup.string().max(255).required("Password is required"),
-    }),
+    // validationSchema: Yup.object({
+    //   username: Yup.string().max(255).required("username is required"),
+    //   password: Yup.string().max(255).required("Password is required"),
+    // }),
     onSubmit: async () => {
-      try {
-        const response = await axios.post("http://localhost:3000/auth", {
-          ...formik.values,
-          role: selectRole,
-        });
-        if (response.status === 201) {
-          toast.success("🦄 Login Success!", {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          const { access_token, user } = response.data;
-          console.log(user.role);
-
-          authContext.signIn(user);
-          if (user.role === "User") {
-            Router.push({
-              pathname: "/landing-page",
-            }).catch((err) => console.error(err));
-          } else if (user.role === "Tenant") {
-            Router.push({
-              pathname: "/tenant",
-            }).catch((err) => console.error(err));
-          }
-        } else {
-          console.error("Server responded with status:", response.status);
-        }
-      } catch (error) {
-        if (error.response.status === 401) {
-          toast.error("Account doesn't exist ", {
-            position: "top-right",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          formik.values.email = "";
-        } else {
-          console.error("Server responded with status:", error.response.status);
-        }
+      // fix
+      if (selectRole === "User") {
+        Router.push({
+          pathname: "/",
+        }).catch((err) => console.error(err));
       }
+      if (selectRole === "Tenant") {
+        Router.push({
+          pathname: "/tenant",
+        }).catch((err) => console.error(err));
+      }
+      if (selectRole === "Admin") {
+        Router.push({
+          pathname: "/admin",
+        }).catch((err) => console.error(err));
+      }
+
+      // if (user.role === "User") {
+      //     Router.push({
+      //       pathname: "/landing-page",
+      //     }).catch((err) => console.error(err));
+      //   } else if (user.role === "Tenant") {
+      //     Router.push({
+      //       pathname: "/tenant",
+      //     }).catch((err) => console.error(err));
+
+      // try {
+      //   console.log(123);
+
+      //   const response = await httpRequest.post("/auth/login", {
+      //     // ...formik.values,
+      //     // role: selectRole,
+
+      //       "username": "dung",
+      //       "password": "dung1234"
+
+      //   });
+      //   console.log(234);
+
+      //   console.log(response);
+      //   // > 200 < 300
+      //   // if (response.status === 201) {
+      //   //   toast.success("🦄 Login Success!", {
+      //   //     position: "top-right",
+      //   //     autoClose: 1500,
+      //   //     hideProgressBar: false,
+      //   //     closeOnClick: true,
+      //   //     pauseOnHover: true,
+      //   //     draggable: true,
+      //   //     progress: undefined,
+      //   //     theme: "light",
+      //   //   });
+      //   //   const { access_token, user } = response.data;
+      //   //   console.log(user.role);
+
+      //   //   authContext.signIn(user);
+      //   //   if (user.role === "User") {
+      //   //     Router.push({
+      //   //       pathname: "/landing-page",
+      //   //     }).catch((err) => console.error(err));
+      //   //   } else if (user.role === "Tenant") {
+      //   //     Router.push({
+      //   //       pathname: "/tenant",
+      //   //     }).catch((err) => console.error(err));
+      //   //   }
+      //   // } else {
+      //   //   console.error("Server responded with status:", response.status);
+      //   // }
+      // } catch (error) {
+      //   if (error.response.status === 401) {
+      //     toast.error("Account doesn't exist ", {
+      //       position: "top-right",
+      //       autoClose: 1500,
+      //       hideProgressBar: false,
+      //       closeOnClick: true,
+      //       pauseOnHover: true,
+      //       draggable: true,
+      //       progress: undefined,
+      //       theme: "light",
+      //     });
+      //     formik.values.username = "";
+      //   } else {
+      //     console.error("Server responded with status:", error.response.status);
+      //   }
+      // }
     },
   });
 
   useEffect(() => {
-    const { email, password } = Router.query;
+    const { username, password, role } = Router.query;
 
-    if (typeof email === "string" && typeof password === "string") {
-      // Xử lý nếu email và password là string (URL chỉ có một tham số)
-      formik.setValues({ email, password });
+    if (typeof username === "string" && typeof password === "string" && typeof role === "string") {
+      formik.setValues({ username, password });
+      console.log(1);
+
+      setSelectRole(role);
     }
   }, [Router.query]);
 
@@ -131,7 +146,7 @@ const Login = () => {
         <title>Login | Material Kit</title>
       </Head>
 
-      <HeaderBar />
+      <HeaderBarAuth />
 
       <Box
         component="main"
@@ -193,9 +208,14 @@ const Login = () => {
                         background:
                           selectRole === "User"
                             ? "linear-gradient(to right, #9083D5, #807593)"
-                            : "none",
-                        color: selectRole === "User" ? "#fff" : "#000",
-                        border: selectRole === "User" ? "none" : "1px solid #ccc",
+                            : "none", // Thay đổi nền khi nút User được chọn
+                        color: selectRole === "User" ? "#fff" : "#000", // Thay đổi màu chữ khi nút User được chọn
+                        border: selectRole === "User" ? "none" : "1px solid #ccc", // Bỏ viền khi nút User được chọn
+                        "&:hover": {
+                          background: "none",
+                          color: "#000",
+                          boxShadow: "rgba(0, 0, 0, 0.35) 0px 2px 4px",
+                        },
                       }}
                       onClick={() => handleSelectRole("User")}
                       variant="contained"
@@ -210,26 +230,50 @@ const Login = () => {
                             : "#fff",
                         color: selectRole === "Tenant" ? "#fff" : "#000",
                         border: selectRole === "Tenant" ? "none" : "1px solid #ccc",
+                        "&:hover": {
+                          background: "none",
+                          color: "#000",
+                          boxShadow: "rgba(0, 0, 0, 0.35) 0px 2px 4px",
+                        },
                       }}
                       onClick={() => handleSelectRole("Tenant")}
                       variant="contained"
                     >
-                      Tenant
+                      Partner
+                    </Button>
+                    <Button
+                      sx={{
+                        background:
+                          selectRole === "Admin"
+                            ? "linear-gradient(to right, #9083D5, #807593)"
+                            : "#fff",
+                        color: selectRole === "Admin" ? "#fff" : "#000",
+                        border: selectRole === "Admin" ? "none" : "1px solid #ccc",
+                        "&:hover": {
+                          background: "none",
+                          color: "#000",
+                          boxShadow: "rgba(0, 0, 0, 0.35) 0px 2px 4px",
+                        },
+                      }}
+                      onClick={() => handleSelectRole("Admin")}
+                      variant="contained"
+                    >
+                      Admin
                     </Button>
                   </Box>
                 </Box>
 
                 <TextField
-                  error={Boolean(formik.touched.email && formik.errors.email)}
+                  error={Boolean(formik.touched.username && formik.errors.username)}
                   fullWidth
-                  helperText={formik.touched.email && formik.errors.email}
-                  label="Email Address"
+                  helperText={formik.touched.username && formik.errors.username}
+                  label="username Address"
                   margin="normal"
-                  name="email"
+                  name="username"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
-                  type="email"
-                  value={formik.values.email}
+                  type="username"
+                  value={formik.values.username}
                   variant="outlined"
                 />
 

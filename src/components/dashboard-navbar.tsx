@@ -70,7 +70,7 @@ export const DashboardNavbar = (props) => {
               <UserCircleIcon fontSize="small" />
             </Avatar>
             <Typography variant="body1" style={{ color: "#000", padding: "0 15px" }}>
-              Hello,
+              Hello, A
             </Typography>
           </Toolbar>
         </DashboardNavbarRoot>

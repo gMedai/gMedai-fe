@@ -24,116 +24,63 @@ import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 const historys = [
-  // Ngày 25/11
   {
     id: uuid(),
-    timeDiag: new Date("2023-11-25T00:00:00"),
-    result: "Normal",
-    rate: 80,
+    timeDiag: new Date(new Date().setHours(15, 9, 9, 0) - 24 * 60 * 60 * 1000),
+    result: "Degenerate",
+    rate: 75,
   },
-  // Thêm 19 đối tượng khác cho ngày 25/11
-
-  // Ngày 26/11
   {
     id: uuid(),
-    timeDiag: new Date("2023-11-26T00:00:00"),
-    result: "Normal",
-    rate: 85,
-  },
-  // Thêm 19 đối tượng khác cho ngày 26/11
-
-  // Ngày 27/11
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-27T00:00:00"),
-    result: "Normal",
-    rate: 78,
-  },
-  // Thêm 19 đối tượng khác cho ngày 27/11
-
-  // Ngày 28/11
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-28T00:00:00"),
-    result: "Normal",
+    timeDiag: new Date(new Date().setHours(14, 9, 9, 0) - 24 * 60 * 60 * 1000),
+    result: "Degenerate",
     rate: 75,
   },
 
-  // Ngày 29/11
   {
     id: uuid(),
-    timeDiag: new Date("2023-11-29T00:00:00"),
-    result: "Normal",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T01:00:00"),
+    timeDiag: new Date(),
     result: "Degenerate",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T02:00:00"),
-    result: "Degenerate",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T03:04:00"),
-    result: "Normal",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T04:04:58"),
-    result: "Degenerate",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T05:14:13"),
-    result: "Normal",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T06:08:08"),
-    result: "Normal",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T08:08:07"),
-    result: "Normal",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-29T09:09:09"),
-    result: "Degenerate",
-    rate: 75,
-  },
-  {
-    id: uuid(),
-    timeDiag: new Date("2023-11-30T15:09:09"),
-    result: "Degenerate",
-    rate: 80,
-    uploadedImageUrl:
-      "https://bone.vn/wp-content/uploads/2020/08/hinh-anh-x-quang-thoai-hoa-khop-goi-1-min.jpg",
+    rate: 90,
+    uploadedImageUrl: "/static/images/historydiagnose/upload2.png",
 
     resultImages: [
       {
-        imageUrl:
-          "https://media.vneconomy.vn/images/upload/2021/05/17/185845115-310393400545356-5432741184686865255-n.jpg",
-        rate: 0.792,
+        imageUrl: "/static/images/historydiagnose/result21.png",
+        rate: 0.9,
       },
       {
-        imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5Hb-loqEh20R33LnfGVo6-PxnpSpyQFIYJ1cRl3D8XK23qmiWbSmQh4ESWrbt2lp---E&usqp=CAU",
-        rate: 0.992,
+        imageUrl: "/static/images/historydiagnose/result22.png",
+        rate: 0.9,
       },
+
     ],
+  },
+  {
+    id: uuid(),
+    timeDiag: new Date(new Date().setHours(8, 9, 9)),
+    rate: 95,
+    result: "Degenerate",
+    uploadedImageUrl: "/static/images/historydiagnose/upload1.png",
+    resultImages: [
+      {
+        imageUrl: "/static/images/historydiagnose/result1.png",
+        rate: 0.9,
+      },
+    ]
+
+  },
+  {
+    id: uuid(),
+    timeDiag: new Date(new Date().setHours(6, 9, 9)),
+    result: "Normal",
+    rate: 75,
+  },
+  {
+    id: uuid(),
+    timeDiag: new Date(new Date().setHours(5, 9, 9)),
+    result: "Normal",
+    rate: 75,
   },
 ];
 export const HistoryList = (props: CardProps) => {

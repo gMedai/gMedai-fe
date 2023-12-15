@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { DashboardLayout } from "../../components/dashboard-layout";
 import { Box } from "@mui/material";
-import { ManagePayment } from "@components/managepayment/managepayment";
+import { ManagePayment } from "../../components/managepayment/managepayment";
 const Page = () => {
   return (
     <>
