@@ -52,7 +52,7 @@ const Page = () => {
 
   const authContext: any = useAuthContext();
   useEffect(() => {
-    setselectedTenant(authContext.tenantId);
+    setselectedTenant(authContext.tenantId || "1");
   }, []);
 
   const tenants = [

@@ -29,6 +29,6 @@ const Page = () => (
   </>
 );
 
-Page.getLayout = (page) => <DashboardLayout role={"admin"}>{page}</DashboardLayout>;
+Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Page;

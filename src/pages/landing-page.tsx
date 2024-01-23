@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <>
       <Head>
-        <title>Welcome to GmedAI</title>
+        <title>Welcome to DiagHub</title>
       </Head>
       <Box
         component="main"

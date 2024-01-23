@@ -23,7 +23,7 @@ export const LandingPageNavbar = (props) => {
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/48165f60-7317-48bd-a5db-8cd7eec18d98?apiKey=989a6631d9bb4bf5b8bb7d79bb088c53&"
               alt="Logo"
             />
-            <Title>GMed AI</Title>
+            <Title>DiagHub</Title>
           </Logo>
         </NextLink>
         {/* <Navigation>

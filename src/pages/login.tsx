@@ -267,7 +267,7 @@ const Login = () => {
                   error={Boolean(formik.touched.username && formik.errors.username)}
                   fullWidth
                   helperText={formik.touched.username && formik.errors.username}
-                  label="username Address"
+                  label="User name"
                   margin="normal"
                   name="username"
                   onBlur={formik.handleBlur}
